@@ -59,10 +59,11 @@ grant_type=client_credentials&client_id=<CLIENT_ID>&client_secret=<CLIENT_SECRET
 
 ```json
 {
-  "access_token": "eyJhbGciOiJIUzI1NiIs...",
-  "token_type": "Bearer",
-  "expires_in": 1799,
-  "scope": "useraccount"
+    "access_token": "6rTENXT96VWYgbZfV5DnfV-9F2ojxEMxLVx1-M4Gh3uLx9QHRD_C9KP4eqGOIsiTqa1NI4nSweO97d3kXbp7XQ",
+    "refresh_token": "afqRdI-D3glTAqEjO6ZG7q_7r7f4MfmBzFGcRpe__tSJwOACtcst1N3TbBaWWb66jY2mgOlVbZC_B2wPOsjVSA",
+    "scope": "",
+    "token_type": "Bearer",
+    "expires_in": 1799
 }
 ```
 
@@ -71,7 +72,7 @@ grant_type=client_credentials&client_id=<CLIENT_ID>&client_secret=<CLIENT_SECRET
 ### 3. Call the API with Bearer Token
 
 ```bash
-GET https://<instance>.service-now.com/api/x_asset_lifecycle_api/asset/C12345
+GET https://<instance>/api/1778869/asset_lifecycle_dashboard_api/asset/LAP12345
 Authorization: Bearer <ACCESS_TOKEN>
 ```
 
@@ -79,29 +80,46 @@ Authorization: Bearer <ACCESS_TOKEN>
 
 ```json
 {
-  "asset": {
-    "tag": "C12345",
-    "name": "Dell Latitude 7420",
-    "model": "Dell Laptop",
-    "assigned_to": "Jane Doe",
-    "status": "In Use",
-    "warranty_expiry": "2025-12-31"
-  },
-  "incidents": [
-    {
-      "number": "INC0010023",
-      "short_description": "Laptop not booting",
-      "state": "In Progress"
+    "result": {
+        "asset": {
+            "tag": "LAP12345",
+            "name": "LAP12345 - Dell Inc. Alienware M14x",
+            "model": null,
+            "ci": "SN123456 - Alienware M14x",
+            "assigned_to": "Abel Tuter",
+            "status": "",
+            "warranty_expiry": "N/A"
+        },
+        "incidents": [
+            {
+                "number": "INC0012243",
+                "short_description": "Laptop not booting",
+                "state": "New"
+            },
+            {
+                "number": "INC0012244",
+                "short_description": "screen flickering",
+                "state": "New"
+            }
+        ],
+        "requests": [
+            {
+                "number": "REQ0000001",
+                "requested_for": "System Administrator",
+                "stage": "requested"
+            },
+            {
+                "number": "REQ0010002",
+                "requested_for": "Adam Meyers",
+                "stage": "requested"
+            },
+            {
+                "number": "REQ0010001",
+                "requested_for": "Aeron Goldtree",
+                "stage": "requested"
+            }
+        ]
     }
-  ],
-  "requests": [
-    {
-      "number": "REQ0010056",
-      "requested_for": "Jane Doe",
-      "stage": "Fulfillment"
-    }
-  ],
-  "disposal": {}
 }
 ```
 
@@ -141,8 +159,10 @@ Authorization: Bearer <ACCESS_TOKEN>
 ## 🏆 Resume Highlight
 
 > *Built a secured Scripted REST API in ServiceNow that consolidates IT asset lifecycle details from multiple modules, with OAuth 2.0 authentication for enterprise-grade security.*
+---
 
-```
-
+## Author
+- Anasuya Rampalli
+---
 
 
