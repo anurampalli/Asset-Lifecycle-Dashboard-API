@@ -3,7 +3,7 @@
 ## Overview
 The **Asset Lifecycle Dashboard API** is a **Scripted REST API** built in ServiceNow that provides a **360° view of IT assets** — from procurement to retirement.  
 
-It consolidates data across multiple ServiceNow tables (`alm_asset`, `incident`, `sc_request`, etc.) and returns it in a clean JSON format.  
+It consolidates data across multiple ServiceNow tables (`alm_asset`, `incident`, etc.) and returns it in a clean JSON format.  
 
 This project also demonstrates securing the API using **OAuth 2.0** in ServiceNow.  
 
@@ -19,11 +19,11 @@ This project also demonstrates securing the API using **OAuth 2.0** in ServiceNo
 ---
 
 ## Technical Design
-- **Platform:** ServiceNow Scoped App  
+- **Platform:** ServiceNow   
 - **API Endpoint:**  
 
 ```bash
-GET /api/x\_asset\_lifecycle\_api/asset/{asset\_tag}
+GET /api/1778869/asset_lifecycle_dashboard_api/asset/{asset_tag}
 ```
 
 - **Tables Queried:**  
@@ -52,7 +52,7 @@ Request an access token with **client credentials**:
 POST https://<instance>.service-now.com/oauth_token.do
 Content-Type: application/x-www-form-urlencoded
 
-grant_type=client_credentials&client_id=<CLIENT_ID>&client_secret=<CLIENT_SECRET>
+grant_type=password&client_id=<CLIENT_ID>&client_secret=<CLIENT_SECRET>
 ````
 
 **Response:**
@@ -125,25 +125,10 @@ Authorization: Bearer <ACCESS_TOKEN>
 
 ---
 
-## Project Structure
-
-```plaintext
-/AssetLifecycleAPI
- ├── README.md
- ├── docs/
- │    ├── api-design.md
- │    ├── oauth2-setup.md
- └── screenshots/
-      ├── oauth-client-registry.png
-      ├── api-test-postman.png
-```
-
----
-
 ## Testing
 
-* **Postman / Curl** → For quick API testing with OAuth2 tokens
-* **Automated Tests** → Could be extended with ServiceNow ATF or external test runners
+* **Postman** → For quick API testing with OAuth2 tokens
+
 
 ---
 
